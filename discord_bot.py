@@ -2,6 +2,7 @@
 import discord
 from discord.ext import commands
 from config.config import Config
+from logger.logger_config import logger
 
 
 def run_bot_service():
@@ -15,7 +16,7 @@ def run_bot_service():
 
     @bot.event
     async def on_ready():
-        print(f"✅ Bot 已上线！当前登录为：{bot.user}")
+        logger.info(f"✅ Bot 已上线！当前登录为：{bot.user}")
 
     async def load_cogs():
         await bot.load_extension("cmds.praise_cog")

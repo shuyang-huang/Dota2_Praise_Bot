@@ -106,3 +106,7 @@ class LlmPrompt:
 
         {match_data}
         """).strip()
+
+    @classmethod
+    def get_random_car_type_prompt(cls):
+        return "随机给我一个高端汽车品牌，电车也在列。不需要其他任何信息。用中文。用-连接空格。"

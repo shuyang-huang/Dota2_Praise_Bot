@@ -17,6 +17,20 @@ class Llm:
             raise Exception("Invalid model selected.")
 
     @classmethod
+    def get_randon_car_type(cls):
+        cls.setup_llm()
+        response = cls.client.chat.completions.create(
+            model=cls.model,
+            messages=[
+                {"role": "user", "content": LlmPrompt.get_random_car_type_prompt()}
+            ],
+            temperature=1.8,
+            top_p=0.9,
+        )
+
+        print("")
+
+    @classmethod
     def get_praise(cls, match_data: str, play_as: str, word_cnt: int, token_cnt: int):
         cls.setup_llm()
 
